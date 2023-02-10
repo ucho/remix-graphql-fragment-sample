@@ -12,10 +12,5 @@ export const Pokemon = (props: {
   pokemon: FragmentType<typeof PokemonFragment>;
 }) => {
   const { id, name } = useFragment(PokemonFragment, props.pokemon);
-  return (
-    <tr>
-      <td>{id}</td>
-      <td>{name}</td>
-    </tr>
-  );
+  return <>{`${id}: ${name}`}</>;
 };
