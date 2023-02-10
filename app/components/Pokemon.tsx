@@ -1,4 +1,4 @@
-import { type FragmentType, useFragment } from "~/gql/fragment-masking";
+import { type FragmentType, getFragmentData } from "~/gql/fragment-masking";
 import { graphql } from "~/gql/gql";
 
 export const PokemonFragment = graphql(/* GraphQL */ `
@@ -11,6 +11,6 @@ export const PokemonFragment = graphql(/* GraphQL */ `
 export const Pokemon = (props: {
   pokemon: FragmentType<typeof PokemonFragment>;
 }) => {
-  const { id, name } = useFragment(PokemonFragment, props.pokemon);
+  const { id, name } = getFragmentData(PokemonFragment, props.pokemon);
   return <>{`${id}: ${name}`}</>;
 };
